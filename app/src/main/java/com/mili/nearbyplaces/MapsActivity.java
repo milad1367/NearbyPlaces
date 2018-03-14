@@ -102,4 +102,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mPermissionDenied = false;
         }
     }
+    /**
+     * Displays a dialog with error message explaining that the location permission is missing.
+     */
+    private void showMissingPermissionError() {
+        PermissionUtils.PermissionDeniedDialog
+                .newInstance(true).show(getSupportFragmentManager(), "dialog");
+    }
 }
