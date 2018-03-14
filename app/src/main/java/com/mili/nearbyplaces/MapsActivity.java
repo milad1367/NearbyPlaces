@@ -93,4 +93,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mPermissionDenied = true;
         }
     }
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        if (mPermissionDenied) {
+            // Permission was not granted, display error dialog.
+            showMissingPermissionError();
+            mPermissionDenied = false;
+        }
+    }
 }
