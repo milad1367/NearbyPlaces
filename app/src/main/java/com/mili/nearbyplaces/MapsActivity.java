@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -62,5 +63,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // Access to the location has been granted to the app.
             mMap.setMyLocationEnabled(true);
         }
+    }
+   
+    public boolean onMyLocationButtonClick() {
+        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        // Return false so that we don't consume the event and the default behavior still occurs
+        // (the camera animates to the user's current position).
+        return false;
     }
 }
